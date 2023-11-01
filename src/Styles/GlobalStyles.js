@@ -9,14 +9,25 @@ export const GlobalStyles = createGlobalStyle`
 body{
     font-family: "Poppins", 'Times New Roman';
     min-height: 100vh;
-    background-color: ${({theme}) => theme.color.backgroundColor};
+    background-color: ${({ theme }) => theme.color.backgroundColor};
 }
 `;
-export const Shop = styled.section`
- max-width: ${({theme}) => theme.responsive.desktop};
+
+export const ShopWrapper = styled.section`
+
+max-width: ${({ theme }) => theme.responsive.desktop};
  margin: 0 auto;
- padding: 100px 20px;
+ padding: 50px 20px;
  min-height: 100vh;
+ position: relative;
+ 
+ .buttonWrapper{
+    display: flex;
+    justify-content: space-between;
+ }
+`;
+
+export const Shop = styled.section`
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
  gap: 30px;
@@ -30,6 +41,9 @@ export const SingleProduct = styled.div`
 
 
     img {
+    min-width: 100%;
+    min-height: 50%;
+    height: 50%;
     width: 100%;
     margin: 7px auto;
     border-radius: 8px;
@@ -53,7 +67,8 @@ export const SingleProduct = styled.div`
 export const CartButton = styled.button`
 
 
-  position: relative;
+  position: absolute;
+  bottom: 0;
   display: inline-block;
   cursor: pointer;
   outline: none;
