@@ -1,12 +1,17 @@
+import { ThemeProvider } from "styled-components"
+import { GlobalStyles } from "./Styles/GlobalStyles"
+import { theme } from "./Styles/Theme"
+import Navbar from "./Components/Navbar"
+import ShopPage from "./Components/ShopPage"
 
 function App() {
 
   return (
-    <>
-      <div>
-        This is app.
-       </div>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Navbar/>
+      <ShopPage />
+    </ThemeProvider>
   )
 }
 
