@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import {styled, keyframes} from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+`;
 
 export const DropDownWrapper = styled.div`
 /* margin-top: 100px; */
@@ -54,7 +65,22 @@ export const OptionMenu = styled.div`
   border-radius: 0.375rem;
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219);
+  animation: ${fadeIn} 0.5s ease-in-out;
 
+  &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 15px;
+        border-radius: 10px;
+  background-color: rgba(209, 213, 219);
+      
+  }
+
+  &::-webkit-scrollbar-thumb {
+  background-color: white;
+    width: 5px;
+    border-radius: 10px;
+  }
   &:hover {
     outline: none;
   }

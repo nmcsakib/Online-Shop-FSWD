@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   DropDownWrapper,
   DropDownButton,
@@ -7,7 +7,7 @@ import {
   OptionRow,
   Label
 } from "../Styles/DropdownStyles";
-import useProducts from "../data/useProducts";
+import PropTypes from 'prop-types';
 
 const  CategoryMenu = ({ options = [], mainDefaultText, setMainDefaultText }) => {
   const [actionDropDown, setActionDropDown] = useState(false);
@@ -52,6 +52,10 @@ const handleOptionRow = (option) => {
           {actionDropDown ? (
             <>
               <OptionMenu role="menu">
+              <OptionRow onClick={() => handleOptionRow("All Categories")}>
+                    <Label>All Categories</Label>
+                    
+                  </OptionRow>
                 {options.map((option, key) => (
                   <OptionRow key={key} onClick={() => handleOptionRow(option)}>
                     <Label>{`${option}`}</Label>
@@ -67,6 +71,13 @@ const handleOptionRow = (option) => {
     </DropDownWrapper>
   );
 }
+
+CategoryMenu.propTypes = {
+    options: PropTypes.array,
+    mainDefaultText: PropTypes.string,
+    setMainDefaultText: PropTypes.func
+  };
+  
 
 export default CategoryMenu;
 

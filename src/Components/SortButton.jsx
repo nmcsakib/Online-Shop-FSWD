@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   DropDownWrapper,
   DropDownButton,
@@ -7,23 +7,21 @@ import {
   OptionRow,
   Label
 } from "../Styles/DropdownStyles";
+import PropTypes from 'prop-types';
 
-const  SortButton = ({ defaultText = "", }) => {
+const  SortButton = ({setSortingText}) => {
   const [actionDropDown, setActionDropDown] = useState(false);
   const dropdownEl = useRef(null);
-  const [mainDefaultText, setMainDefaultText] = useState(defaultText);
 
   const dropdown = () => {
     setActionDropDown(!actionDropDown);
   };
 
-const handleOptionRow = () => {
-
+const handleOptionRow = (text) => {
     setActionDropDown(!actionDropDown);
+    setSortingText(text)
 }
-  useEffect(() => {
-    setMainDefaultText(defaultText);
-  }, [defaultText]);
+  
 
   // Click event listener to close dropdown
 
@@ -31,7 +29,7 @@ const handleOptionRow = () => {
     <DropDownWrapper>
       <div ref={dropdownEl}>
         <DropDownButton onClick={dropdown}>
-          {mainDefaultText}
+          Sort
           <SVG>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,10 +52,10 @@ const handleOptionRow = () => {
             <>
               <OptionMenu role="menu">
                
-                  <OptionRow onClick={() => handleOptionRow()}>
+                  <OptionRow onClick={() => handleOptionRow("Low to High")}>
                     <Label>Low to High</Label>
                   </OptionRow>
-                  <OptionRow onClick={() => handleOptionRow()}>
+                  <OptionRow onClick={() => handleOptionRow("High to Low")}>
                   <Label>High to Low</Label>
                   </OptionRow>
 
@@ -71,5 +69,8 @@ const handleOptionRow = () => {
   );
 }
 
+SortButton.propTypes = {
+    setSortingText: PropTypes.func
+}
 export default SortButton;
 

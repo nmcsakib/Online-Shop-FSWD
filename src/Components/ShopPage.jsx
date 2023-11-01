@@ -7,43 +7,60 @@ import SortButton from "./SortButton";
 
 const ShopPage = () => {
     const categories = []
-    const [prods, setProds] = useState([])
-    const [mainDefaultText, setMainDefaultText] = useState("All Categories");
-    // const [categories, setCategories] = useState([])
-    const products = useProducts();
-    products.map(category => {
+    const [sortingText, setSortingText] = useState("")
+    const [products, setProducts] = useState([])
+    const [categoryDefaultText, setMainDefaultText] = useState("All Categories");
+    const allProducts = useProducts();
+
+    allProducts?.map(category => {
         if (!categories.includes(category.category)) {
             categories.push(category.category)
            }
   }  )
 
   useEffect(() => {
-    setProds(products)
+    setProducts(allProducts)
 
-},[products])
+},[allProducts])
 
 useEffect(() => {
-
-    const filters = products.filter((product) => product.category === mainDefaultText )
-    setProds(filters)
-    console.log(filters);
-},[mainDefaultText])
+if(categoryDefaultText === "All Categories"){
+    setProducts(allProducts);
+} else{
+    const categoryNames = allProducts.filter((product) => product.category === categoryDefaultText )
+    setProducts(categoryNames)
+    console.log(categoryNames);
+}
+},[categoryDefaultText])
  
-    return (
+useEffect(() => {
+    const sortByPrice = [...products];
+    if(sortingText === "High to Low"){
+        const sortedProducts = sortByPrice?.sort((a, b) => b?.price - a?.price);
+        setProducts(sortedProducts)
+        
+    }else if(sortingText === "Low to High"){
+        const sortedProducts = sortByPrice?.sort((a, b) => a?.price - b?.price);
+        setProducts(sortedProducts)
+    }
+},[sortingText])
+
+console.log(sortingText, products);
+return (
         <ShopWrapper>
 <div className="buttonWrapper">
 <CategoryMenu 
 options={categories}
-mainDefaultText={mainDefaultText}
+mainDefaultText={categoryDefaultText}
 setMainDefaultText={setMainDefaultText}
 />
 <SortButton
-defaultText={`Sort`}
+setSortingText={setSortingText}
 />
 </div>
         <Shop>
           {
-              prods?.map(product => <ProductCard key={product?.id} product={product}/>)
+              products?.map(product => <ProductCard key={product?.id} product={product}/>)
             }
         </Shop>
             </ShopWrapper>
