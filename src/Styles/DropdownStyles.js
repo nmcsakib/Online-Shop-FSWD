@@ -12,7 +12,6 @@ const fadeIn = keyframes`
 `;
 
 export const DropDownWrapper = styled.div`
-/* margin-top: 100px; */
   position: relative;
 `;
 
@@ -59,13 +58,10 @@ export const OptionMenu = styled.div`
   max-height: 16rem;
   overflow-y: scroll;
   z-index: 40;
-
-  border-width: 0.5px;
-  border-style: solid;
   border-radius: 0.375rem;
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219);
-  animation: ${fadeIn} 0.5s ease-in-out;
+  animation: ${fadeIn} 0.3s ease-in-out;
 
   &::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -92,8 +88,7 @@ export const OptionRow = styled.div`
   align-items: center;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-
-  background-color: salmon;
+  background-color: ${({theme}) => theme.color.cartButton};
   border: 0;
   border-bottom: 1px solid gray;
   border-style: solid;
@@ -110,12 +105,7 @@ export const Label = styled.label`
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-
-  /* background-color: pink; */
-  /* Font */
   font-size: 0.875rem;
   line-height: 1.25rem;
-
-  --tw-text-opacity: 1;
-  color: rgb(55, 65, 81);
+  color: white;
 `;

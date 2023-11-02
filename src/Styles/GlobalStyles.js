@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 body{
-    font-family: "Poppins", 'Times New Roman';
+    font-family: "Poppins", 'Times New Roman' !important;
     min-height: 100vh;
     background-color: ${({ theme }) => theme.color.backgroundColor};
 }
@@ -17,11 +17,16 @@ export const ShopWrapper = styled.section`
 
 max-width: ${({ theme }) => theme.responsive.desktop};
  margin: 0 auto;
- padding: 50px 20px;
+ padding: 50px 2rem;
  min-height: 100vh;
  position: relative;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 2rem;
  
  .buttonWrapper{
+  width: 100%;
     display: flex;
     justify-content: space-between;
  }
@@ -31,9 +36,25 @@ export const Shop = styled.section`
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
  gap: 30px;
+
+    
+ @media (max-width: ${({ theme }) => theme.responsive.mobile}) {
+  grid-template-columns: 1fr ;
+  padding: 0 2rem;
+ }
+
+ @media (min-width: ${({ theme }) => theme.responsive.mobile}) and (max-width: ${({ theme }) => theme.responsive.tablet}) {
+  grid-template-columns: 1fr 1fr;
+
+ }
+ @media (min-width: ${({ theme }) => theme.responsive.tablet}) and (max-width: ${({ theme }) => theme.responsive.laptop}) {
+  grid-template-columns: 1fr 1fr 1fr;
+
+ }
 `;
 
 export const SingleProduct = styled.div`
+min-height: 60vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -57,7 +78,7 @@ export const SingleProduct = styled.div`
     font-size: 21px;
     line-height: 25px;
     letter-spacing: 0.0015em;
-    color: #0E161A;
+    color: ${({theme}) => theme.color.textColor};
 }
 
 .product-info p{
@@ -90,13 +111,13 @@ export const CartButton = styled.button`
   justify-content: start;
   align-items: center;
   border-radius: 0;
-  background: #427743;
+  background: ${({theme}) => theme.color.cartButton};
   color: #fff;
 }
 
 .btn-icon { 
     border-radius: 0;
-    padding: 7px;
+    padding: 0.5rem;
 }
 p{
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -109,7 +130,7 @@ p{
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  color: #427743;
+  color: ${({theme}) => theme.color.textColor};;
 }
 &:hover .circle {
   width: 100%;
@@ -123,3 +144,18 @@ p{
 &:hover p{
   color: #fff;
 }`
+
+export const PaginationButton = styled.button`
+padding: 10px 14px;
+border-radius: 5px;
+background-color: ${({theme, bg}) => bg ? theme.color.cartButton : "white"};
+cursor: pointer;
+font-family: "Poppins",  sans-serif;
+border: 1px solid gray;
+margin-right: 10px;
+
+&:active{
+  background-color: ${({theme}) => theme.color.cartButton};
+}
+
+`;

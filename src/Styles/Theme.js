@@ -2,11 +2,8 @@ export const theme = {
     color: {
       backgroundColor: "#fbfaea",
       NavBG: "#123042",
-      titleTextColor: "#04072F",
-      primary1: "#0ecda0",
-      primary2: "#19e7b7",
-      secondary1: "#e5570d",
-      secondary2: "#963501"
+      textColor: "#0E161A",
+      cartButton: "#427743",
     },
     responsive: {
       mobile: "570px",
