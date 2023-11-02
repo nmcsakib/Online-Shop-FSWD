@@ -4,6 +4,7 @@ import useProducts from "../data/useProducts";
 import CategoryMenu from "./CategoryMenu";
 import ProductCard from "./ProductCard";
 import SortButton from "./SortButton";
+import {motion} from "framer-motion";
 
 const ShopPage = () => {
     const categories = []
@@ -84,7 +85,15 @@ const ShopPage = () => {
             </div>
             <Shop>
                 {
-                    products?.map(product => <ProductCard key={product?.id} product={product} />)
+                    products?.map(product => <motion.div key={product?.id}
+                        layout
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                        transition={{duration: 0.5}}
+                         >
+                            <ProductCard product={product}/>
+                         </motion.div>)
                 }
             </Shop>
             <div>
