@@ -7,7 +7,7 @@
 * Download the project from your cmd
 ``git clone <copied link>``
 * Go to the project
-``cd Online-Shop_FSWD/``
+``cd Online-Shop-FSWD/``
 * Install all packages
 ``npm install``
 * Run the project in your browser
