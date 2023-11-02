@@ -9,7 +9,7 @@ import {
 } from "../Styles/DropdownStyles";
 import PropTypes from 'prop-types';
 
-const  SortButton = ({setSortingText}) => {
+const SortButton = ({ setSortingText }) => {
   const [actionDropDown, setActionDropDown] = useState(false);
   const dropdownEl = useRef(null);
 
@@ -17,13 +17,10 @@ const  SortButton = ({setSortingText}) => {
     setActionDropDown(!actionDropDown);
   };
 
-const handleOptionRow = (text) => {
+  const handleOptionRow = (text) => {
     setActionDropDown(!actionDropDown);
     setSortingText(text)
-}
-  
-
-  // Click event listener to close dropdown
+  }
 
   return (
     <DropDownWrapper>
@@ -51,18 +48,18 @@ const handleOptionRow = (text) => {
           {actionDropDown ? (
             <>
               <OptionMenu role="menu">
-               
-                  <OptionRow onClick={() => handleOptionRow("Low to High")}>
-                    <Label>Low to High</Label>
-                  </OptionRow>
-                  <OptionRow onClick={() => handleOptionRow("High to Low")}>
+
+                <OptionRow onClick={() => handleOptionRow("Low to High")}>
+                  <Label>Low to High</Label>
+                </OptionRow>
+                <OptionRow onClick={() => handleOptionRow("High to Low")}>
                   <Label>High to Low</Label>
-                  </OptionRow>
+                </OptionRow>
 
               </OptionMenu>
             </>
           ) : null}
-         
+
         </DropDownWrapper>
       </div>
     </DropDownWrapper>
@@ -70,7 +67,7 @@ const handleOptionRow = (text) => {
 }
 
 SortButton.propTypes = {
-    setSortingText: PropTypes.func
+  setSortingText: PropTypes.func
 }
 export default SortButton;
 

@@ -3,7 +3,7 @@ export const theme = {
       backgroundColor: "#fbfaea",
       NavBG: "#123042",
       textColor: "#0E161A",
-      cartButton: "#427743",
+      secondary: "#427743",
     },
     responsive: {
       mobile: "570px",

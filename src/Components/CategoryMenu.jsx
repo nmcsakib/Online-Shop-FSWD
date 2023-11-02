@@ -9,22 +9,19 @@ import {
 } from "../Styles/DropdownStyles";
 import PropTypes from 'prop-types';
 
-const  CategoryMenu = ({ options = [], mainDefaultText, setMainDefaultText }) => {
+const CategoryMenu = ({ options = [], mainDefaultText, setMainDefaultText }) => {
   const [actionDropDown, setActionDropDown] = useState(false);
   const dropdownEl = useRef(null);
- 
+
   const dropdown = () => {
     setActionDropDown(!actionDropDown);
   };
 
-const handleOptionRow = (option) => {
+  const handleOptionRow = (option) => {
 
     setActionDropDown(!actionDropDown);
     setMainDefaultText(option)
-}
-
-
-  // Click event listener to close dropdown
+  }
 
   return (
     <DropDownWrapper>
@@ -52,20 +49,20 @@ const handleOptionRow = (option) => {
           {actionDropDown ? (
             <>
               <OptionMenu role="menu">
-              <OptionRow onClick={() => handleOptionRow("All Categories")}>
-                    <Label>All Categories</Label>
-                    
-                  </OptionRow>
+                <OptionRow onClick={() => handleOptionRow("All Categories")}>
+                  <Label>All Categories</Label>
+
+                </OptionRow>
                 {options.map((option, key) => (
                   <OptionRow key={key} onClick={() => handleOptionRow(option)}>
                     <Label>{`${option}`}</Label>
-                    
+
                   </OptionRow>
                 ))}
               </OptionMenu>
             </>
           ) : null}
-         
+
         </DropDownWrapper>
       </div>
     </DropDownWrapper>
@@ -73,11 +70,11 @@ const handleOptionRow = (option) => {
 }
 
 CategoryMenu.propTypes = {
-    options: PropTypes.array,
-    mainDefaultText: PropTypes.string,
-    setMainDefaultText: PropTypes.func
-  };
-  
+  options: PropTypes.array,
+  mainDefaultText: PropTypes.string,
+  setMainDefaultText: PropTypes.func
+};
+
 
 export default CategoryMenu;
 

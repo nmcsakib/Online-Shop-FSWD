@@ -1,4 +1,4 @@
-import {styled, keyframes} from "styled-components";
+import { styled, keyframes } from "styled-components";
 
 const fadeIn = keyframes`
   from {
@@ -88,7 +88,7 @@ export const OptionRow = styled.div`
   align-items: center;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  background-color: ${({theme}) => theme.color.cartButton};
+  background-color: ${({ theme }) => theme.color.secondary};
   border: 0;
   border-bottom: 1px solid gray;
   border-style: solid;

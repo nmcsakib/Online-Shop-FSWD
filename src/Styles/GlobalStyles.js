@@ -78,7 +78,7 @@ min-height: 60vh;
     font-size: 21px;
     line-height: 25px;
     letter-spacing: 0.0015em;
-    color: ${({theme}) => theme.color.textColor};
+    color: ${({ theme }) => theme.color.textColor};
 }
 
 .product-info p{
@@ -111,7 +111,7 @@ export const CartButton = styled.button`
   justify-content: start;
   align-items: center;
   border-radius: 0;
-  background: ${({theme}) => theme.color.cartButton};
+  background: ${({ theme }) => theme.color.secondary};
   color: #fff;
 }
 
@@ -130,7 +130,7 @@ p{
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  color: ${({theme}) => theme.color.textColor};;
+  color: ${({ theme }) => theme.color.textColor};;
 }
 &:hover .circle {
   width: 100%;
@@ -148,14 +148,14 @@ p{
 export const PaginationButton = styled.button`
 padding: 10px 14px;
 border-radius: 5px;
-background-color: ${({theme, bg}) => bg ? theme.color.cartButton : "white"};
+background-color: ${({ theme, bg }) => bg ? theme.color.secondary : "white"};
 cursor: pointer;
 font-family: "Poppins",  sans-serif;
 border: 1px solid gray;
 margin-right: 10px;
 
 &:active{
-  background-color: ${({theme}) => theme.color.cartButton};
+  background-color: ${({ theme }) => theme.color.secondary};
 }
 
 `;
