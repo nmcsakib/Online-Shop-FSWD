@@ -37,6 +37,11 @@ export const Shop = styled.section`
  gap: 30px;
 
     
+ div{
+  position: relative;
+min-height: 200px;
+
+ }
  @media (max-width: ${({ theme }) => theme.responsive.mobile}) {
   grid-template-columns: 1fr ;
   padding: 0 2rem;
@@ -53,8 +58,7 @@ export const Shop = styled.section`
 `;
 
 export const SingleProduct = styled.div`
-min-height: 60vh;
-    position: relative;
+   
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -62,7 +66,7 @@ min-height: 60vh;
 
     img {
     min-width: 100%;
-    min-height: 50%;
+    min-height: 200px;
     height: 50%;
     width: 100%;
     margin: 7px auto;

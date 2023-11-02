@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 
 const ProductCard = ({ product }) => {
   const { img, name, seller, ratings, price } = product;
-
+    
+  const handleImageError = (event) => {
+      event.target.src = '/imageNotFound.jpg';
+    };
+  
   return (
     <SingleProduct>
-      <img src={img} alt={name} />
+      <img src={img} alt={name}  onError={handleImageError} />
       <div className="product-info">
         <h6 className="product-name">{name}</h6>
         <p>Price: ${price}</p>
